@@ -1,6 +1,14 @@
 # TERVÉN — Phase 4 preview
 
-The existing Next.js App Router website now has Supabase data, admin authentication, property management, image uploads and seller submissions. **No mock listing is published or copied into Supabase.** Without configuration the public pages show an empty state, login explains setup, and seller intake stays disabled. No production deployment is performed.
+The existing Next.js App Router website now has Supabase data, admin authentication, property management, image uploads and seller submissions. **No mock listing is published or copied into Supabase.** Without configuration the public pages show an empty state, login explains setup, and seller intake stays disabled. The full application is deployed only as a Vercel Preview; Production serves a launch placeholder.
+
+## GitHub and Vercel deployment
+
+- The GitHub repository is `helloaoffy99/TERVEN` and is connected to the Vercel project `terven`.
+- `main` contains the launch placeholder and automatically deploys to Production. Do not merge the full application into `main` until the public launch is approved.
+- `review/terven-site` contains the full application and automatically deploys to a protected Vercel Preview. The Preview environment has the Supabase URL and publishable key, and `SUBMISSIONS_ENABLED=false`.
+- `.env.local`, screenshots, staging files and the original oversized logo are excluded from Git. The optimized logo used by the site is in `public/images/terven-logo.png`.
+- The full application remains `noindex` globally. Review business data, privacy terms and contact details before launching, then configure Production environment variables and change the robots policy deliberately.
 
 ## Local preview
 
