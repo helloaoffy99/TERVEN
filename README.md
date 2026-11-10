@@ -1,14 +1,14 @@
-# TERVÉN — Phase 4 preview
+# TERVÉN — Public website and admin
 
-The existing Next.js App Router website now has Supabase data, admin authentication, property management, image uploads and seller submissions. **No mock listing is published or copied into Supabase.** Without configuration the public pages show an empty state, login explains setup, and seller intake stays disabled. The full application is deployed only as a Vercel Preview; Production serves a launch placeholder.
+The Next.js App Router website has Supabase data, admin authentication, property management, image uploads and seller submissions. **No mock listing is published or copied into Supabase.** Without configuration the public pages show an empty state, login explains setup, and seller intake stays disabled. The full application is deployed on Vercel Production and a protected Preview.
 
 ## GitHub and Vercel deployment
 
 - The GitHub repository is `helloaoffy99/TERVEN` and is connected to the Vercel project `terven`.
-- `main` contains the launch placeholder and automatically deploys to Production. Do not merge the full application into `main` until the public launch is approved.
-- `review/terven-site` contains the full application and automatically deploys to a protected Vercel Preview. The Preview environment has the Supabase URL and publishable key, and `SUBMISSIONS_ENABLED=false`.
+- `main` contains the public application and automatically deploys to Production at `https://terven.vercel.app/`.
+- `review/terven-site` contains the reviewed application and automatically deploys to a protected Vercel Preview. Both environments have the Supabase URL and publishable key, and `SUBMISSIONS_ENABLED=false`.
 - `.env.local`, screenshots, staging files and the original oversized logo are excluded from Git. The optimized logo used by the site is in `public/images/terven-logo.png`.
-- The full application remains `noindex` globally. Review business data, privacy terms and contact details before launching, then configure Production environment variables and change the robots policy deliberately.
+- The full application remains `noindex` globally while business data, privacy terms and contact details are reviewed. Change the robots policy deliberately before search indexing.
 
 ## Local preview
 
@@ -51,4 +51,4 @@ Open `http://127.0.0.1:3000/`. For a production-build preview, stop the dev serv
 
 Run `pnpm exec tsc --noEmit`, `pnpm test`, and `pnpm build`. Without project credentials, database migrations, Auth, RLS, CRUD, Storage and real submission delivery **cannot** be verified against Supabase; validate those in the connected project before opening service. Suggested manual checks: anonymous cannot read `property_submissions` or change `properties`; non-admin cannot open `/admin` or call mutation routes; admin can draft, upload, publish, unpublish, update, delete, and see public changes; duplicate/rate-limited seller requests show errors.
 
-The website remains `noindex` globally until business data, privacy terms, contact details and production readiness are reviewed. Do not deploy or enable intake merely to test visual layout.
+The website remains `noindex` globally until business data, privacy terms, contact details and search readiness are reviewed. Keep seller intake disabled until its privacy and contact requirements are complete.
