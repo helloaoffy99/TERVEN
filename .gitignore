@@ -1,3 +1,11 @@
-node_modules/
-.next/
+node_modules
+.next
+out
 .env*
+!.env.example
+*.tsbuildinfo
+pnpm-debug.log*
+.vercel/
+/preview/
+/staging/
+/TERVEN-logo-A3-500dpi-clean-exact.png

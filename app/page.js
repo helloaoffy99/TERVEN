@@ -1,1 +1,0 @@
-export default function Page() { return <main style={{ minHeight: "100vh", display: "grid", placeItems: "center", textAlign: "center", padding: 24, boxSizing: "border-box" }}><div><h1 style={{ letterSpacing: ".2em", fontWeight: 400 }}>TERVÉN</h1><p style={{ color: "#c2b6a3" }}>กำลังเตรียมเว็บไซต์สำหรับตรวจสอบ</p></div></main>; }

@@ -1,0 +1,9 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { Compass, Eye, Handshake } from "lucide-react";
+
+export const metadata: Metadata = { title: "เกี่ยวกับ TERVÉN | TERVÉN", description: "แนวคิดและประสบการณ์เว็บไซต์ต้นแบบ TERVÉN สำหรับการค้นหาและนำเสนออสังหาริมทรัพย์", robots: { index: false, follow: false } };
+
+export default function AboutPage() {
+  return <main className="inner-page"><section className="page-hero about-hero"><div className="container"><span className="section-kicker">ABOUT TERVÉN</span><h1>พื้นที่ที่ดี เริ่มจากความเข้าใจ</h1><p>แนวคิดการนำเสนออสังหาริมทรัพย์ที่ชัดเจน เรียบง่าย และใส่ใจในรายละเอียด</p></div></section><section className="container content-section about-layout"><div><span className="section-kicker">OUR APPROACH</span><h2>ค้นหาคุณค่าในทุกพื้นที่</h2></div><div><p>TERVÉN เป็นเว็บไซต์อสังหาริมทรัพย์ที่อยู่ระหว่างการพัฒนา หน้านี้สื่อสารแนวทางการออกแบบบริการ ไม่ใช่ข้อมูลรับรองประวัติหรือผลงานบริษัท</p><p>เราตั้งใจให้การค้นหา การเปรียบเทียบ และการนำเสนอข้อมูลทรัพย์เป็นเรื่องเข้าใจง่าย พร้อมพื้นที่ให้ผู้ใช้ตรวจสอบรายละเอียดก่อนตัดสินใจ</p></div></section><section className="about-values"><div className="container"><span className="section-kicker">WHAT GUIDES THE EXPERIENCE</span><h2>ออกแบบเพื่อการตัดสินใจที่ชัดเจน</h2><div className="value-grid"><article><Compass size={30} /><h3>ค้นหาอย่างตรงจุด</h3><p>ตัวกรองทำเล ประเภท ราคา และสถานะ ช่วยเริ่มต้นจากสิ่งที่ต้องการ</p></article><article><Eye size={30} /><h3>เห็นข้อมูลสำคัญก่อน</h3><p>ราคา พื้นที่ และสถานะอยู่ในตำแหน่งที่อ่านง่ายทั้งมือถือและคอมพิวเตอร์</p></article><article><Handshake size={30} /><h3>สื่อสารอย่างโปร่งใส</h3><p>ข้อมูลที่ยังไม่ได้ตั้งค่าและช่องทางติดต่อจะแสดงตามจริง</p></article></div></div></section><section className="container page-cta"><h2>เริ่มสำรวจพื้นที่ที่อาจใช่</h2><p>ค้นหาประกาศที่เผยแพร่แล้ว</p><Link className="dark-button" href="/properties">ดูอสังหาริมทรัพย์ →</Link></section></main>;
+}
