@@ -1,0 +1,56 @@
+import type { Property, PropertyImage } from "@/data/properties";
+
+const slug = "land-si-surat-damnoen-saduak-ratchaburi";
+const title = "ขายที่ดิน 2 แปลงติดกัน 9 ไร่ 1 งาน 60.6 ตร.ว. ดำเนินสะดวก ราชบุรี";
+
+const photos: Array<{ file: string; alt: string }> = [
+  { file: "overview.webp", alt: "ภาพแผนผังประกอบแสดงแปลงที่ดิน 1 และ 2 ใกล้ Damnoen Sky" },
+  { file: "land-view.webp", alt: "สภาพพื้นที่ที่ดินเปล่าในตำบลศรีสุราษฎร์" },
+  { file: "canal-view.webp", alt: "มุมมองที่ดินและคลองบริเวณใกล้เคียง" },
+  { file: "canal-access.webp", alt: "มุมมองแนวคลองและพื้นที่ที่ดิน" },
+  { file: "road-view.webp", alt: "ถนนบริเวณทางเข้าที่ดิน" },
+];
+
+const images: PropertyImage[] = photos.map(({ file, alt }, index) => ({
+  id: `damnoen-land-image-${index + 1}`,
+  propertyId: "curated-damnoen-land",
+  imageUrl: `/images/damnoen-land/${file}`,
+  altText: alt,
+  sortOrder: index,
+  isCover: index === 0,
+}));
+
+export const curatedProperties: Property[] = [{
+  id: "curated-damnoen-land",
+  propertyCode: "TV-RB-001",
+  slug,
+  title,
+  description: [
+    "ที่ดินเปล่า 2 แปลงติดกัน ในตำบลศรีสุราษฎร์ อำเภอดำเนินสะดวก จังหวัดราชบุรี เสนอขายรวมเนื้อที่ 9 ไร่ 1 งาน 60.6 ตารางวา ราคา 40,000,000 บาท",
+    "แปลงที่ 1: 4 ไร่ 3 งาน 20.6 ตารางวา\nแปลงที่ 2: 4 ไร่ 2 งาน 40 ตารางวา",
+    "ภาพถ่ายแสดงสภาพพื้นที่ แนวคลอง และถนนบริเวณใกล้เคียง หากสนใจแบ่งซื้อ กรุณาสอบถามเงื่อนไขทาง LINE",
+    "ภาพแผนผังใช้ประกอบการดูตำแหน่งโดยประมาณ ประกาศนี้เสนอขายเฉพาะแปลงที่ 1 และ 2 ไม่รวมพื้นที่หรือกิจการ Damnoen Sky ที่แสดงเป็นจุดอ้างอิง",
+  ].join("\n\n"),
+  propertyType: "ที่ดิน",
+  price: 40000000,
+  province: "ราชบุรี",
+  district: "ดำเนินสะดวก",
+  subdistrict: "ศรีสุราษฎร์",
+  landArea: { rai: 9, ngan: 1, squareWa: 60.6 },
+  latitude: 13.526144,
+  longitude: 99.973585,
+  googleMapsUrl: "https://maps.app.goo.gl/zTLyrahoziCQq8Zm6",
+  status: "พร้อมขาย",
+  isFeatured: true,
+  images,
+  highlights: ["ที่ดิน 2 แปลงติดกัน", "เนื้อที่รวม 9 ไร่ 1 งาน 60.6 ตร.ว.", "สอบถามเงื่อนไขแบ่งขายได้"],
+  amenities: [],
+  createdAt: "2026-11-11T00:00:00+07:00",
+  updatedAt: "2026-11-11T00:00:00+07:00",
+  location: "ดำเนินสะดวก ราชบุรี",
+  type: "ที่ดิน",
+  priceLabel: "40,000,000",
+  area: "9 ไร่ 1 งาน 60.6 ตร.ว.",
+  image: images[0].imageUrl,
+  badge: "พร้อมขาย",
+}];

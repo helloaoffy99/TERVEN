@@ -2,6 +2,7 @@ import "server-only";
 import { unstable_noStore as noStore } from "next/cache";
 import type { Property, PropertyImage, PropertyStatus, PropertyType } from "@/data/properties";
 import { formatPrice } from "@/data/properties";
+import { curatedProperties } from "@/data/curated-properties";
 import { createServerSupabaseClient } from "@/lib/supabase/server";
 
 type Row = Record<string, unknown> & { property_images?: Record<string, unknown>[] };
@@ -46,7 +47,7 @@ const select = "*, property_images(id,storage_path,alt_text,sort_order,is_cover)
 export async function listPublicProperties(): Promise<Property[]> {
   noStore();
   const client = await createServerSupabaseClient();
-  if (!client) return [];
+  if (!client) return curatedProperties;
   const rows: Row[] = [];
   const pageSize = 500;
   const now = new Date().toISOString();
@@ -59,14 +60,16 @@ export async function listPublicProperties(): Promise<Property[]> {
     rows.push(...(data ?? []) as Row[]);
     if (!data || data.length < pageSize) break;
   }
-  return rows.map((row) => mapPropertyRow(row, process.env.NEXT_PUBLIC_SUPABASE_URL!));
+  const live = rows.map((row) => mapPropertyRow(row, process.env.NEXT_PUBLIC_SUPABASE_URL!));
+  const liveSlugs = new Set(live.map((property) => property.slug));
+  return [...curatedProperties.filter((property) => !liveSlugs.has(property.slug)), ...live];
 }
 
 export async function getPublicProperty(slug: string): Promise<Property | null> {
   noStore();
   const client = await createServerSupabaseClient();
-  if (!client) return null;
+  if (!client) return curatedProperties.find((property) => property.slug === slug) ?? null;
   const { data, error } = await client.from("properties").select(select).eq("slug", slug).not("published_at", "is", null).neq("status", "draft").lte("published_at", new Date().toISOString()).maybeSingle();
   if (error) throw new Error("ไม่สามารถโหลดรายละเอียดอสังหาริมทรัพย์ได้");
-  return data ? mapPropertyRow(data as Row, process.env.NEXT_PUBLIC_SUPABASE_URL!) : null;
+  return data ? mapPropertyRow(data as Row, process.env.NEXT_PUBLIC_SUPABASE_URL!) : curatedProperties.find((property) => property.slug === slug) ?? null;
 }
