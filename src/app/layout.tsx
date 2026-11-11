@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { SiteChrome } from "@/components/site-chrome";
 import { AuthRedirectBridge } from "@/components/auth-redirect-bridge";
-import { getSiteUrl } from "@/config/site";
+import { getSiteUrl, siteShareImage } from "@/config/site";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -9,6 +9,14 @@ export const metadata: Metadata = {
   title: "TERVÉN | อสังหาริมทรัพย์ที่ใช่ ในจังหวะชีวิตของคุณ",
   description:
     "ค้นหาอสังหาริมทรัพย์และฝากขายกับ TERVÉN พร้อมข้อมูลประกาศที่ผ่านการตรวจสอบและเผยแพร่",
+  openGraph: {
+    type: "website",
+    images: [siteShareImage],
+  },
+  twitter: {
+    card: "summary",
+    images: [siteShareImage.url],
+  },
   robots: { index: false, follow: false },
 };
 

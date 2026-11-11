@@ -7,6 +7,13 @@ export const siteContact = {
   officeAddress: null as string | null,
 };
 
+export const siteShareImage = {
+  url: "/images/terven-share.jpg",
+  width: 960,
+  height: 960,
+  alt: "โลโก้ TERVÉN บนพื้นหลังสีขาว",
+};
+
 export function getSiteUrl(): URL {
   const configured = process.env.NEXT_PUBLIC_SITE_URL || (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://127.0.0.1:3000");
   try { return new URL(configured); } catch { return new URL("http://127.0.0.1:3000"); }

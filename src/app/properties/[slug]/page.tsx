@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getPublicProperty, listPublicProperties } from "@/lib/live-properties";
-import { getSiteUrl } from "@/config/site";
+import { getSiteUrl, siteShareImage } from "@/config/site";
 import { PropertyDetailView } from "@/components/property-detail-view";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const title = `${property.title} | TERVÉN`;
   const description = property.description || `อสังหาริมทรัพย์ใน${property.district} ${property.province}`;
   const canonical = new URL(`/properties/${property.slug}`, getSiteUrl()).toString();
-  return { title, description, alternates: { canonical }, openGraph: { title, description, url: canonical, type: "website", images: property.image ? [{ url: property.image, alt: property.title }] : [] } };
+  return { title, description, alternates: { canonical }, openGraph: { title, description, url: canonical, type: "website", images: [siteShareImage] }, twitter: { card: "summary", title, description, images: [siteShareImage.url] } };
 }
 
 export default async function PropertyDetailPage({ params }: Props) {
