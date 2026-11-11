@@ -1,7 +1,10 @@
-import type { Property, PropertyImage } from "@/data/properties";
+import { formatPrice, type Property, type PropertyImage } from "@/data/properties";
 
 const slug = "land-si-surat-damnoen-saduak-ratchaburi";
 const title = "ขายที่ดิน 9 ไร่ 1 งาน 60.6 ตร.ว. ด้านหน้าติดถนนหลัก ด้านหลังติดแม่น้ำ อยู่ติดแลนด์มาร์ค ทำเลดีมาก ดำเนินสะดวก ราชบุรี";
+const landArea = { rai: 9, ngan: 1, squareWa: 60.6 };
+const pricePerRai = 4_000_000;
+const calculatedTotalPrice = Math.round(pricePerRai * (landArea.rai + landArea.ngan / 4 + landArea.squareWa / 400));
 
 const photos: Array<{ file: string; alt: string }> = [
   { file: "overview.webp", alt: "ภาพแผนผังประกอบแสดงแปลงที่ดิน 1 และ 2 ใกล้ Damnoen Sky" },
@@ -26,7 +29,7 @@ export const curatedProperties: Property[] = [{
   slug,
   title,
   description: [
-    "ที่ดินเปล่า 2 แปลงติดกัน ในตำบลศรีสุราษฎร์ อำเภอดำเนินสะดวก จังหวัดราชบุรี เสนอขายรวมเนื้อที่ 9 ไร่ 1 งาน 60.6 ตารางวา ราคา 40,000,000 บาท",
+    `ที่ดินเปล่า 2 แปลงติดกัน ในตำบลศรีสุราษฎร์ อำเภอดำเนินสะดวก จังหวัดราชบุรี เนื้อที่รวม 9 ไร่ 1 งาน 60.6 ตารางวา ราคาไร่ละ ${formatPrice(pricePerRai)} บาท`,
     "แปลงที่ 1: 4 ไร่ 3 งาน 20.6 ตารางวา\nแปลงที่ 2: 4 ไร่ 2 งาน 40 ตารางวา",
     "ใกล้สิ่งอำนวยความสะดวกและจุดแลนด์มาร์ค\n• อยู่ติดคาเฟ่เครื่องบิน Damnoen Sky\n• อยู่ติดสวนอาหารขวัญดำเนิน\n• อยู่ในชุมชน ใกล้ 7-Eleven\n• ใกล้แหล่งท่องเที่ยว โรงเรียน หน่วยงานราชการ วัด และโรงเจ",
     "จุดเด่นของทำเล\n• ด้านหน้าติดถนนใหญ่ ด้านหลังติดแม่น้ำ\n• น้ำ-ไฟ สาธารณะพร้อม\n• เดินทางสะดวก",
@@ -35,11 +38,12 @@ export const curatedProperties: Property[] = [{
     "ภาพแผนผังใช้ประกอบการดูตำแหน่งโดยประมาณ ประกาศนี้เสนอขายเฉพาะแปลงที่ 1 และ 2 ไม่รวมพื้นที่หรือกิจการ Damnoen Sky ที่แสดงเป็นจุดอ้างอิง",
   ].join("\n\n"),
   propertyType: "ที่ดิน",
-  price: 40000000,
+  // Search and sorting use the calculated total; the public listing quotes the per-rai rate.
+  price: calculatedTotalPrice,
   province: "ราชบุรี",
   district: "ดำเนินสะดวก",
   subdistrict: "ศรีสุราษฎร์",
-  landArea: { rai: 9, ngan: 1, squareWa: 60.6 },
+  landArea,
   latitude: 13.526144,
   longitude: 99.973585,
   googleMapsUrl: "https://maps.app.goo.gl/zTLyrahoziCQq8Zm6",
@@ -52,7 +56,7 @@ export const curatedProperties: Property[] = [{
   updatedAt: "2026-11-11T00:00:00+07:00",
   location: "ดำเนินสะดวก ราชบุรี",
   type: "ที่ดิน",
-  priceLabel: "40,000,000",
+  priceLabel: `${formatPrice(pricePerRai)} / ไร่`,
   area: "9 ไร่ 1 งาน 60.6 ตร.ว.",
   image: images[0].imageUrl,
   badge: "พร้อมขาย",
