@@ -1,6 +1,8 @@
 export const siteContact = {
   phone: null as string | null,
   lineUrl: "https://lin.ee/58K7r2K" as string | null,
+  facebookUrl: "https://www.facebook.com/profile.php?id=61594993681340" as string | null,
+  instagramUrl: "https://www.instagram.com/terven.official/" as string | null,
   email: null as string | null,
   officeAddress: null as string | null,
 };
