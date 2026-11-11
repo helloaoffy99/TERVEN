@@ -31,7 +31,7 @@ export function ShareActions({ property, preview = false }: { property: Property
       <a href={`https://social-plugins.line.me/lineit/share?url=${shareUrl}&text=${shareText}`} target="_blank" rel="noopener noreferrer">แชร์ LINE</a>
     </div></>}
     {message && <p className="share-feedback" role="status">{message}</p>}
-    <div className="contact-placeholder"><strong>ช่องทางติดต่อทรัพย์</strong>{siteContact.phone || siteContact.lineUrl ? <div className="share-buttons">{siteContact.phone && <a href={`tel:${siteContact.phone}`}>โทรสอบถาม</a>}{siteContact.lineUrl && <a href={siteContact.lineUrl} target="_blank" rel="noopener noreferrer">ติดต่อผ่าน LINE</a>}</div> : <p>ยังไม่ได้ตั้งค่าเบอร์โทรศัพท์หรือ LINE อย่างเป็นทางการ</p>}</div>
+    <div className="contact-placeholder"><strong>สอบถามทรัพย์และนัดชม</strong>{siteContact.phone || siteContact.lineUrl ? <div className="share-buttons">{siteContact.phone && <a href={`tel:${siteContact.phone}`}>โทรสอบถาม</a>}{siteContact.lineUrl && <a href={siteContact.lineUrl} target="_blank" rel="noopener noreferrer">ทัก LINE เรื่องทำเลและราคา</a>}</div> : <p>ยังไม่ได้ตั้งค่าเบอร์โทรศัพท์หรือ LINE อย่างเป็นทางการ</p>}</div>
     {mapUrl && <a className="preview-map-link" href={mapUrl} target="_blank" rel="noopener noreferrer"><MapPin size={18} /> เปิด Google Maps</a>}
     {(siteContact.phone || siteContact.lineUrl) && <div className="mobile-contact-bar">{siteContact.phone && <a href={`tel:${siteContact.phone}`}>โทรสอบถาม</a>}{siteContact.lineUrl && <a href={siteContact.lineUrl} target="_blank" rel="noopener noreferrer">ติดต่อ LINE</a>}</div>}
   </div>;
