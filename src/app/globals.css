@@ -309,6 +309,16 @@ button:disabled{opacity:.55;cursor:not-allowed;transform:none}
 .gallery-thumbs button{flex:none;width:110px;height:75px;padding:0;border:2px solid transparent;background:#e9ecee;opacity:.7}
 .gallery-thumbs button.active{border-color:var(--gold);opacity:1}
 .gallery-thumbs img{width:100%;height:100%;object-fit:cover}
+.gallery-square .gallery-main{width:100%;height:auto;aspect-ratio:1/1;background:#f4f5f3}
+.gallery-square .gallery-main>img{object-fit:contain}
+.gallery-square .gallery-toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:10px}
+.gallery-square .gallery-toolbar-actions{display:flex;align-items:center;gap:8px}
+.gallery-square .gallery-label{color:var(--navy);font-size:13px;font-weight:600;white-space:nowrap}
+.gallery-square .gallery-expand,.gallery-square .gallery-arrows{position:static}
+.gallery-square .gallery-expand{border:1px solid #d9dddf}
+.gallery-square .gallery-arrows button{border:1px solid #d9dddf}
+.gallery-square .gallery-thumbs button{width:90px;height:90px;background:#f4f5f3}
+.gallery-square .gallery-thumbs img{object-fit:contain}
 .gallery-fallback{width:100%;height:100%;display:grid;place-items:center;background:#e4e8ea;color:var(--navy);font-size:17px}
 .gallery-lightbox{position:fixed;inset:0;z-index:100;background:rgba(5,12,21,.96);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:62px 20px 24px;touch-action:pan-y}
 .gallery-lightbox-image{position:relative;width:min(100%,1250px);flex:1;min-height:0}
@@ -449,9 +459,11 @@ button:disabled{opacity:.55;cursor:not-allowed;transform:none}
   .result-toolbar select{max-width:200px}
   .detail-layout{padding-top:25px;padding-bottom:60px}
   .gallery-main{height:clamp(250px,67vw,390px)}
+  .gallery-square .gallery-main{height:auto}
   .gallery-expand{right:10px;top:10px;font-size:0;width:44px;padding:0;justify-content:center}
   .gallery-main .gallery-label{top:10px;left:10px;font-size:11px;max-width:55%}
   .gallery-thumbs button{width:85px;height:61px}
+  .gallery-square .gallery-thumbs button{width:72px;height:72px}
   .detail-title{display:block;margin-top:25px}
   .detail-title h1{font-size:29px}
   .detail-status{display:inline-block;margin-top:15px}
