@@ -13,7 +13,6 @@ export function PropertyGallery({ images, title }: { images: PropertyImage[]; ti
   const closeRef = useRef<HTMLButtonElement>(null);
   const previousFocus = useRef<HTMLElement | null>(null);
   const current = images[index];
-  const squareListing = images[0]?.propertyId === "curated-lak-ha-house";
   const move = (step: number) => setIndex((value) => (value + step + images.length) % images.length);
 
   useEffect(() => {
@@ -52,12 +51,11 @@ export function PropertyGallery({ images, title }: { images: PropertyImage[]; ti
   const expand = <button className="gallery-expand" type="button" onClick={() => setZoomed(true)} aria-label="ขยายภาพ"><Expand size={19} /> ขยายภาพ</button>;
   const arrows = images.length > 1 && <div className="gallery-arrows"><button type="button" onClick={() => move(-1)} aria-label="ภาพก่อนหน้า"><ArrowLeft size={20} /></button><button type="button" onClick={() => move(1)} aria-label="ภาพถัดไป"><ArrowRight size={20} /></button></div>;
 
-  return <div className={`gallery${squareListing ? " gallery-square" : ""}`} aria-label={`แกลเลอรีภาพ ${title}`}>
+  return <div className="gallery" aria-label={`แกลเลอรีภาพ ${title}`}>
     <div className="gallery-main" {...touchHandlers}>
       {photo(false)}
-      {!squareListing && <>{label}{expand}{arrows}</>}
     </div>
-    {squareListing && <div className="gallery-toolbar">{label}<div className="gallery-toolbar-actions">{expand}{arrows}</div></div>}
+    <div className="gallery-toolbar">{label}<div className="gallery-toolbar-actions">{expand}{arrows}</div></div>
     {images.length > 1 && <div className="gallery-thumbs" aria-label="เลือกภาพ">{images.map((image, photoIndex) => <button key={image.id} className={index === photoIndex ? "active" : ""} type="button" aria-label={`ดูภาพที่ ${photoIndex + 1}`} aria-current={index === photoIndex ? "true" : undefined} onClick={() => setIndex(photoIndex)}><Image src={image.imageUrl} unoptimized={image.imageUrl.startsWith("http")} alt="" width={160} height={100} sizes="100px" /></button>)}</div>}
     {zoomed && <div className="gallery-lightbox" role="dialog" aria-modal="true" aria-label={`ภาพขยาย ${title}`} {...touchHandlers}>
       <button className="gallery-lightbox-close" type="button" ref={closeRef} onClick={() => setZoomed(false)} aria-label="ปิดภาพขยาย"><X size={24} /></button>
