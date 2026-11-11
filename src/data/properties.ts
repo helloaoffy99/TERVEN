@@ -1,4 +1,4 @@
-export const propertyTypes = ["บ้านเดี่ยว", "บ้านแฝด", "ทาวน์เฮาส์ / ทาวน์โฮม", "คอนโดมิเนียม", "ที่ดิน", "อาคารพาณิชย์", "อสังหาริมทรัพย์อื่น ๆ"] as const;
+export const propertyTypes = ["บ้านเดี่ยว", "บ้านแฝด", "ทาวน์เฮาส์ / ทาวน์โฮม", "คอนโดมิเนียม", "อพาร์ตเมนต์", "ที่ดิน", "อาคารพาณิชย์", "อสังหาริมทรัพย์อื่น ๆ"] as const;
 export const propertyStatuses = ["พร้อมขาย", "จองแล้ว", "ขายแล้ว"] as const;
 export type PropertyType = (typeof propertyTypes)[number];
 export type PropertyStatus = (typeof propertyStatuses)[number];

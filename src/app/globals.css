@@ -327,6 +327,7 @@ button:disabled{opacity:.55;cursor:not-allowed;transform:none}
 .detail-copy{border-bottom:1px solid #e1e4e4;padding:20px 0 31px;margin-bottom:20px}
 .detail-copy h2{font-size:27px;color:var(--navy);line-height:1.4;margin:8px 0 15px}
 .detail-copy p,.detail-copy li{font-size:17px;line-height:1.85;color:#4f5b66}
+.detail-copy p{white-space:pre-line}
 .detail-copy ul{margin:0;padding-left:23px}
 .detail-type-line{font-size:15px!important}
 .detail-sidebar{position:sticky;top:124px}
