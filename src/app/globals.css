@@ -394,6 +394,7 @@ button:disabled{opacity:.55;cursor:not-allowed;transform:none}
 .contact-grid .contact-primary{border-color:var(--gold);box-shadow:inset 0 4px 0 var(--gold)}
 .contact-grid .contact-primary a{display:inline-flex;align-items:center;min-height:44px;margin-top:14px;padding:8px 16px;background:var(--navy);color:#fff;text-decoration:none;font-weight:700}
 .contact-grid .contact-primary a:hover{background:#203656}
+@media (min-width:701px) and (max-width:900px){.contact-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.contact-grid .contact-primary{grid-column:1/-1}}
 .page-cta{text-align:center;padding-top:80px;padding-bottom:95px}
 .page-cta p,.contact-next p{font-size:17px;color:#53606c;line-height:1.8}
 .contact-page-section{padding-top:55px;padding-bottom:95px}
