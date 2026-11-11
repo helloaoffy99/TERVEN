@@ -46,7 +46,7 @@ export function PropertyGallery({ images, title }: { images: PropertyImage[]; ti
     },
   };
   if (!images.length) return <div className="gallery-fallback" role="img" aria-label="ไม่มีภาพประกอบ">ยังไม่มีภาพประกอบ</div>;
-  const photo = (large: boolean) => failed[current.imageUrl] ? <div className="gallery-fallback" role="img" aria-label="ภาพไม่พร้อมแสดง">ภาพประกอบไม่พร้อมแสดง</div> : <Image src={current.imageUrl} unoptimized={current.imageUrl.startsWith("http")} alt={current.altText} fill priority={!large && index === 0} sizes={large ? "100vw" : "(max-width: 800px) 100vw, 70vw"} onError={() => setFailed((value) => ({ ...value, [current.imageUrl]: true }))} />;
+  const photo = (large: boolean) => failed[current.imageUrl] ? <div className="gallery-fallback" role="img" aria-label="ภาพไม่พร้อมแสดง">ภาพประกอบไม่พร้อมแสดง</div> : <Image src={current.imageUrl} unoptimized={current.imageUrl.startsWith("http")} alt={current.altText} fill priority={!large && index === 0} sizes={large ? "100vw" : "(max-width: 800px) 100vw, 70vw"} className={current.propertyId === "curated-damnoen-land" && current.imageUrl.endsWith("/overview.webp") ? "gallery-overview" : undefined} onError={() => setFailed((value) => ({ ...value, [current.imageUrl]: true }))} />;
 
   return <div className="gallery" aria-label={`แกลเลอรีภาพ ${title}`}>
     <div className="gallery-main" {...touchHandlers}>

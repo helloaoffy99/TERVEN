@@ -299,6 +299,7 @@ button:disabled{opacity:.55;cursor:not-allowed;transform:none}
 .detail-main{min-width:0}
 .gallery-main{height:clamp(340px,38vw,540px);position:relative;overflow:hidden;background:#dce0e2;touch-action:pan-y}
 .gallery-main>img,.gallery-lightbox-image>img{object-fit:cover}
+.gallery-main>img.gallery-overview{object-fit:contain;background:#101f36}
 .gallery-main .gallery-label{position:absolute;left:18px;top:18px;background:rgba(16,31,54,.9);color:#fff;padding:7px 12px;font-size:13px}
 .gallery-expand{position:absolute;right:18px;top:18px;display:inline-flex;align-items:center;gap:8px;min-height:44px;border:0;background:#fff;color:var(--navy);padding:7px 13px;font-size:14px;font-weight:700}
 .gallery-arrows{position:absolute;right:18px;bottom:18px;display:flex;gap:8px}

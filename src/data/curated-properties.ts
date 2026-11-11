@@ -4,8 +4,8 @@ const slug = "land-si-surat-damnoen-saduak-ratchaburi";
 const title = "ขายที่ดิน 2 แปลงติดกัน 9 ไร่ 1 งาน 60.6 ตร.ว. ดำเนินสะดวก ราชบุรี";
 
 const photos: Array<{ file: string; alt: string }> = [
-  { file: "overview.webp", alt: "ภาพแผนผังประกอบแสดงแปลงที่ดิน 1 และ 2 ใกล้ Damnoen Sky" },
   { file: "land-view.webp", alt: "สภาพพื้นที่ที่ดินเปล่าในตำบลศรีสุราษฎร์" },
+  { file: "overview.webp", alt: "ภาพแผนผังประกอบแสดงแปลงที่ดิน 1 และ 2 ใกล้ Damnoen Sky" },
   { file: "canal-view.webp", alt: "มุมมองที่ดินและคลองบริเวณใกล้เคียง" },
   { file: "canal-access.webp", alt: "มุมมองแนวคลองและพื้นที่ที่ดิน" },
   { file: "road-view.webp", alt: "ถนนบริเวณทางเข้าที่ดิน" },
