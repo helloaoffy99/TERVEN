@@ -25,7 +25,7 @@ export function SiteHeader() {
   }, [menuOpen]);
   const current = (href: string) => href === "/" ? pathname === "/" : pathname.startsWith(href);
   return <>
-    <div className="prototype-strip" id="home"><span className="prototype-dot" />TERVÉN · ประกาศแสดงเฉพาะรายการที่เผยแพร่แล้ว</div>
+    <div className="prototype-strip" id="home"><span className="prototype-dot" />TERVÉN | อสังหาริมทรัพย์ | ซื้อ • ขาย • ฝากขายอสังหาริมทรัพย์</div>
     <header className="site-header">
       <div className="header-inner container-wide">
         <Brand />
