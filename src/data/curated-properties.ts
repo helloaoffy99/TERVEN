@@ -1,7 +1,7 @@
 import type { Property, PropertyImage } from "@/data/properties";
 
 const slug = "land-si-surat-damnoen-saduak-ratchaburi";
-const title = "ขายที่ดิน 2 แปลงติดกัน 9 ไร่ 1 งาน 60.6 ตร.ว. ดำเนินสะดวก ราชบุรี";
+const title = "ขายที่ดิน 9 ไร่ 1 งาน 60.6 ตร.ว. ด้านหน้าติดถนนหลัก ด้านหลังติดแม่น้ำ อยู่ติดแลนด์มาร์ค ทำเลดีมาก ดำเนินสะดวก ราชบุรี";
 
 const photos: Array<{ file: string; alt: string }> = [
   { file: "overview.webp", alt: "ภาพแผนผังประกอบแสดงแปลงที่ดิน 1 และ 2 ใกล้ Damnoen Sky" },
