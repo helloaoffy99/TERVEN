@@ -286,6 +286,10 @@ button:disabled{opacity:.55;cursor:not-allowed;transform:none}
 .result-toolbar select{min-height:44px;border:1px solid #cbd0d4;background:#fff;color:var(--navy);font-size:15px;padding:8px 10px}
 .listing-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:23px}
 .listing-grid .property-card{border:1px solid #eceeec}
+.listing-grid .property-image-button{aspect-ratio:1/1;background:#f4f5f3}
+.listing-grid .property-image-button img{object-fit:contain}
+.listing-grid .property-card:hover .property-image-button img{transform:none}
+.listing-grid .property-status{position:static;display:inline-block;margin-bottom:12px;background:#f4f1e9;font-size:12px;line-height:1.4}
 .pagination{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:38px}
 .pagination button{display:grid;place-items:center;min-width:44px;min-height:44px;padding:7px;border:1px solid #cbd0d4;background:#fff;color:var(--navy);font-size:16px}
 .pagination button[aria-current="page"]{background:var(--navy);color:#fff;border-color:var(--navy)}
